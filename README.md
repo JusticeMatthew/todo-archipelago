@@ -1,9 +1,10 @@
 # Astro Todo-List Archipelago
 
-A small side project demonstrating a todo list built in [Astro](https://astro.build/) and rendered with 6 different UI frameworks all sharing state
+A small side project demonstrating a todo list built with [Astro](https://astro.build/) and rendered using 6 different UI frameworks all sharing state
 
-![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
-![SolidJS](https://img.shields.io/badge/SolidJS-2c4f7c?style=for-the-badge&logo=solid&logoColor=c8c9cb)
-![Svelte](https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white)
-![Preact](https://img.shields.io/badge/preact.svg?style=for-the-badge&logo=preact&logoColor=white&labelColor=%23673AB8)
-![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0)
+![SolidJS](https://img.shields.io/badge/SolidJS-2C4F7C?style=for-the-badge&logo=solid&logoColor=white)
+![Vue.js](https://img.shields.io/badge/vue-4FC08D.svg?style=for-the-badge&logo=vuedotjs&logoColor=white)
+![Svelte](https://img.shields.io/badge/svelte-FF3E00.svg?style=for-the-badge&logo=svelte&logoColor=white)
+![Preact](https://img.shields.io/badge/preact-673AB8.svg?style=for-the-badge&logo=preact&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/alpinejs-8BC0D0.svg?style=for-the-badge&logo=alpinedotjs&logoColor=white)
+![Lit](https://img.shields.io/badge/lit-324FFF.svg?style=for-the-badge&logo=lit&logoColor=white)
