@@ -1,0 +1,8 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { PreactList } from '@/components';
+---
+
+<MainLayout>
+  <PreactList client:only="preact" />
+</MainLayout>
