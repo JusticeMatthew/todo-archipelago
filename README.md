@@ -8,3 +8,5 @@ A small side project demonstrating a todo list built with [Astro](https://astro.
 ![Preact](https://img.shields.io/badge/preact-673AB8.svg?style=for-the-badge&logo=preact&logoColor=white)
 ![Alpine.js](https://img.shields.io/badge/alpinejs-8BC0D0.svg?style=for-the-badge&logo=alpinedotjs&logoColor=white)
 ![Lit](https://img.shields.io/badge/lit-324FFF.svg?style=for-the-badge&logo=lit&logoColor=white)
+
+Vue logo provided by Evan You, https://github.com/yyx990803

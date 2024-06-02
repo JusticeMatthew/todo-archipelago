@@ -1,18 +1,23 @@
 ---
 import '@/styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import Header from '@/components/Header.astro';
+const { title } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Todo Archipelago</title>
-	</head>
-	<body>
-		<main>
-      <slot/>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{`Todo Archipelago | ${title}`}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header transition:persist />
+    <main class="container">
+      <slot />
     </main>
-	</body>
+  </body>
 </html>

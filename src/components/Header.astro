@@ -1,1 +1,45 @@
-<header></header>
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<header
+  class="text-light bg-dark/75 outline-dark sticky mx-auto my-6 flex max-w-min rounded-full px-8 text-bread shadow outline outline-1 backdrop-blur-lg"
+>
+  <a href="/">
+    <Icon name="astro-logo" class="text-xl" />Astro
+  </a>
+  <a href="/solid">
+    <Icon name="solid-logo" class="text-2xl" />SolidJS
+  </a>
+  <a href="/svelte">
+    <Icon name="svelte-logo" class="text-2xl" />Svelte
+  </a>
+  <a href="/preact">
+    <Icon name="preact-logo" class="text-2xl" />Preact
+  </a>
+  <a href="/vue">
+    <Icon name="vue-logo" class="text-md" />Vue.js
+  </a>
+  <a href="/alpine">
+    <Icon name="alpine-logo" class="text-md" />Alpine.js
+  </a>
+  <a href="/lit">
+    <Icon name="lit-logo" class="text-2xl" />Lit
+  </a>
+</header>
+
+<style>
+  a {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all;
+    transition-duration: 300ms;
+  }
+
+  a:hover {
+    background-color: rgba(248, 250, 252, 0.1);
+  }
+</style>

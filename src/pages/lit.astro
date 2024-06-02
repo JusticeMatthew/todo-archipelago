@@ -3,6 +3,12 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import { LitList } from '@/components';
 ---
 
-<MainLayout>
+<MainLayout title="Lit">
   <LitList client:only="lit" />
 </MainLayout>
+
+<style>
+  body {
+    background-color: #7088ff;
+  }
+</style>

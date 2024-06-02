@@ -7,11 +7,13 @@ import alpinejs from "@astrojs/alpinejs";
 import lit from "@astrojs/lit";
 import svelte from "@astrojs/svelte";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), solidJs({
     include: ['**/solid/*', '**/node_modules/@suid/material/**']
   }), preact({
     include: ['**/preact/*']
-  }), vue(), alpinejs(), lit(), svelte()]
+  }), vue(), alpinejs(), lit(), svelte(), icon()]
 });

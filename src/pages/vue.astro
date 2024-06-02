@@ -3,6 +3,12 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import { VueList } from '@/components';
 ---
 
-<MainLayout>
+<MainLayout title="Vue">
   <VueList client:only="vue" />
 </MainLayout>
+
+<style>
+  body {
+    background-color: #67a88a;
+  }
+</style>

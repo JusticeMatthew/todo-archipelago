@@ -3,6 +3,12 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import { PreactList } from '@/components';
 ---
 
-<MainLayout>
+<MainLayout title="Preact">
   <PreactList client:only="preact" />
 </MainLayout>
+
+<style>
+  body {
+    background-color: #a390c6;
+  }
+</style>

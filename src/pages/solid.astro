@@ -3,6 +3,12 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import { SolidList } from '@/components';
 ---
 
-<MainLayout>
+<MainLayout title="Solid">
   <SolidList client:only="solid-js" />
 </MainLayout>
+
+<style>
+  body {
+    background-color: #7899c4;
+  }
+</style>

@@ -3,6 +3,12 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import { SvelteList } from '@/components';
 ---
 
-<MainLayout>
+<MainLayout title="Svelte">
   <SvelteList client:only="svelte" />
 </MainLayout>
+
+<style>
+  body {
+    background-color: #bf6040;
+  }
+</style>

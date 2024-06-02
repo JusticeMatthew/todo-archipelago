@@ -14,7 +14,7 @@
   --step-6: clamp(2.986rem, 1.9973rem + 4.7936vi, 6.3115rem);
   --step-7: clamp(3.5832rem, 2.1472rem + 6.9623vi, 8.4132rem);
   --step-8: clamp(4.2998rem, 2.244rem + 9.9676vi, 11.2149rem);
-  
+
   /* Line Heights */
   --flat: 1;
   --fine: 1.15;
@@ -25,6 +25,7 @@
 body {
   font-size: var(--step-0);
   line-height: var(--standard);
+  color: #0d111c;
   overflow-x: clip !important;
   transition-property: all !important;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
