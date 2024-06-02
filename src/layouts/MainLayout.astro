@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
+import { AstroFont } from 'astro-font';
 import Header from '@/components/Header.astro';
 const { title } = Astro.props;
 ---
@@ -13,8 +14,44 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{`Todo Archipelago | ${title}`}</title>
     <ViewTransitions />
+    <AstroFont
+      config={[
+        {
+          name: 'Inter',
+          src: [
+            {
+              style: 'normal',
+              weight: '400',
+              path: 'fonts/Inter.woff2',
+            },
+          ],
+          preload: true,
+          display: 'swap',
+          selector: '.inter',
+          fallback: 'sans-serif',
+        },
+      ]}
+    />
+    <AstroFont
+      config={[
+        {
+          name: 'Roboto-Slab',
+          src: [
+            {
+              style: 'normal',
+              weight: '400',
+              path: 'fonts/roboto-slab.woff2',
+            },
+          ],
+          preload: true,
+          display: 'swap',
+          selector: '.slab',
+          fallback: 'serif',
+        },
+      ]}
+    />
   </head>
-  <body>
+  <body class="inter">
     <Header transition:persist />
     <main class="container">
       <slot />

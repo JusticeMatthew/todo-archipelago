@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  --space-4xl: clamp(8rem, 7.7027rem + 1.4414vi, 9rem);
+
   /* Font Sizes */
   --step-00: clamp(0.8333rem, 0.8302rem + 0.0153vi, 0.844rem);
   --step-0: clamp(1rem, 0.9628rem + 0.1802vi, 1.125rem);
