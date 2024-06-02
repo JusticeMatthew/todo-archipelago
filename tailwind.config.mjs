@@ -8,9 +8,6 @@ export default {
   },
   theme: {
     extend: {
-      margin: {
-        top: 'var(--space-4xl)',
-      },
       fontSize: {
         min: 'var(--step-00)',
         bread: 'var(--step-0)',

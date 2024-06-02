@@ -1,10 +1,14 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import { SvelteList } from '@/components';
+import Bread from '@/components/Bread.astro';
 ---
 
 <MainLayout title="Svelte">
-  <SvelteList client:only="svelte" />
+  <section>
+    <Bread />
+    <SvelteList client:only="svelte" />
+  </section>
 </MainLayout>
 
 <style>

@@ -1,10 +1,14 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import { SolidList } from '@/components';
+import Bread from '@/components/Bread.astro';
 ---
 
 <MainLayout title="Solid">
-  <SolidList client:only="solid-js" />
+  <section>
+    <Bread />
+    <SolidList client:only="solid-js" />
+  </section>
 </MainLayout>
 
 <style>
