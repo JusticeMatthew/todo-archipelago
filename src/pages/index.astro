@@ -53,7 +53,12 @@ if (Astro.request.method === 'POST') {
     <div
       class="ml-32 flex w-full flex-col rounded-lg bg-dark/75 p-8 text-light shadow outline outline-1 outline-dark backdrop-blur-lg"
     >
-      <p class="text-subtitle">Your Astro todo list</p>
+      <p class="text-subtitle">
+        Your <span
+          class="underline decoration-astro decoration-4 underline-offset-4"
+          >Astro</span
+        > todo list
+      </p>
       <form method="POST" class="my-6 flex w-full self-end">
         <input
           id="task"
