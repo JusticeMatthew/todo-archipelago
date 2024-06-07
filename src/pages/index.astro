@@ -1,17 +1,75 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import Bread from '@/components/Bread.astro';
+import { Icon } from 'astro-icon/components';
+import { list } from '@/store/todoStore.js';
+
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData();
+    const task = data.get('task');
+    const checked = data.get('checked');
+
+    if (task) list.value.push(task);
+    console.log(checked);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
+    }
+  }
+}
 ---
 
 <MainLayout title="Astro">
   <section>
     <Bread />
-    <div id="list">List</div>
+    <div
+      class="ml-32 flex w-full flex-col rounded-lg bg-dark/75 p-8 text-light shadow outline outline-1 outline-dark backdrop-blur-lg"
+    >
+      <p class="text-subtitle">Your Astro todo list</p>
+      <form method="POST" class="my-6 flex w-full self-end">
+        <input
+          id="task"
+          required
+          name="task"
+          placeholder="add new item..."
+          class="w-full rounded-md bg-highlight p-3 outline-none focus:outline-astro"
+        />
+        <button
+          id="submit"
+          type="submit"
+          class="ml-2 flex items-center justify-center gap-2 rounded-lg bg-dark/75 px-5 py-3 font-medium outline-1 outline-dark transition-all duration-200 hover:bg-astro"
+        >
+          <Icon name="plus-icon" />
+          Add
+        </button>
+      </form>
+      <form method="POST">
+        {
+          list.value.map((todo, idx) => (
+            <div class="flex flex-row items-center">
+              <input
+                id={idx.toString()}
+                value={idx}
+                name="checked"
+                class="sr-only"
+              />
+              <button type="submit" class="mr-2 rounded-lg bg-highlight p-3">
+                <Icon name="square-icon" />
+              </button>
+              <p class="my-1 w-full rounded-lg bg-highlight px-3 py-2">
+                {todo}
+              </p>
+            </div>
+          ))
+        }
+      </form>
+    </div>
   </section>
 </MainLayout>
 
 <style>
   body {
-    background-color: #ca98b7;
+    background-color: var(--astro);
   }
 </style>

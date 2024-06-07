@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <header
-  class="text-light bg-dark/75 outline-dark sticky mx-auto mt-6 flex max-w-min rounded-full px-8 text-bread shadow outline outline-1 backdrop-blur-lg"
+  class="sticky mx-auto mt-6 flex max-w-min rounded-full bg-dark/75 px-8 text-bread text-light shadow outline outline-1 outline-dark backdrop-blur-lg"
 >
   <a href="/">
     <Icon name="astro-logo" class="text-xl" />Astro
@@ -40,6 +40,6 @@ import { Icon } from 'astro-icon/components';
   }
 
   a:hover {
-    background-color: rgba(248, 250, 252, 0.1);
+    background-color: var(--highlight);
   }
 </style>

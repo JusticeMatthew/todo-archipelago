@@ -8,6 +8,9 @@ export default {
   },
   theme: {
     extend: {
+      margin: {
+        section: 'var(--space-section)',
+      },
       fontSize: {
         min: 'var(--step-00)',
         bread: 'var(--step-0)',
@@ -18,7 +21,8 @@ export default {
       colors: {
         light: '#F8FAFC',
         dark: '#0D111C',
-        astro: '#a692af',
+        highlight: 'var(--highlight)',
+        astro: 'var(--astro)',
       },
     },
   },

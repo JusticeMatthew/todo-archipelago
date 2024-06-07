@@ -20,6 +20,13 @@
   --fine: 1.15;
   --standard: 1.5;
   --loose: 1.7;
+
+  /* Colors */
+  --highlight: rgba(248, 250, 252, 0.1);
+  --astro: #ca98b7;
+
+  /* Top Gap */
+  --space-section: clamp(10rem, 6.8388rem + 15.3271vi, 20.25rem);
 }
 
 body {
@@ -46,9 +53,9 @@ label {
 
 section {
   display: flex;
-  min-height: 70dvh;
+  margin-top: var(--space-section);
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
 }
 
