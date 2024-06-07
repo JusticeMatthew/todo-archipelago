@@ -7,12 +7,10 @@ import alpinejs from '@astrojs/alpinejs';
 import lit from '@astrojs/lit';
 import svelte from '@astrojs/svelte';
 import icon from 'astro-icon';
-
 import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: { actions: true },
   integrations: [
     tailwind(),
     solidJs({
