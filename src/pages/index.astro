@@ -9,9 +9,12 @@ if (Astro.request.method === 'POST') {
     const data = await Astro.request.formData();
     const task = data.get('task');
     const checked = data.get('checked');
+    const checkedString = checked?.toString();
 
     if (task) list.value.push(task);
-    console.log(checked);
+    if (checkedString) {
+      list.value.splice(parseInt(checkedString), 1);
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.log(error.message);
@@ -19,6 +22,30 @@ if (Astro.request.method === 'POST') {
   }
 }
 ---
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const tasks = document.querySelectorAll('[data-delete-button]');
+    tasks.forEach((task) => {
+      const input = task.previousElementSibling;
+      const taskIndex = input.getAttribute('value');
+      task.addEventListener('click', (e) => {
+        const formData = new FormData();
+        formData.append('checked', taskIndex);
+        try {
+          fetch('/', {
+            method: 'POST',
+            body: formData,
+          });
+        } catch (error) {
+          if (error instanceof Error) {
+            console.log(error.message);
+          }
+        }
+      });
+    });
+  });
+</script>
 
 <MainLayout title="Astro">
   <section>
@@ -31,8 +58,9 @@ if (Astro.request.method === 'POST') {
         <input
           id="task"
           required
+          autocomplete="off"
           name="task"
-          placeholder="add new item..."
+          placeholder="add new task..."
           class="w-full rounded-md bg-highlight p-3 outline-none focus:outline-astro"
         />
         <button
@@ -40,21 +68,19 @@ if (Astro.request.method === 'POST') {
           type="submit"
           class="ml-2 flex items-center justify-center gap-2 rounded-lg bg-dark/75 px-5 py-3 font-medium outline-1 outline-dark transition-all duration-200 hover:bg-astro"
         >
-          <Icon name="plus-icon" />
+          <Icon name="plus-icon" class="pointer-events-none" />
           Add
         </button>
       </form>
-      <form method="POST">
+      <form>
         {
           list.value.map((todo, idx) => (
             <div class="flex flex-row items-center">
-              <input
-                id={idx.toString()}
-                value={idx}
-                name="checked"
-                class="sr-only"
-              />
-              <button type="submit" class="mr-2 rounded-lg bg-highlight p-3">
+              <input id={todo} value={idx} name="checked" class="sr-only" />
+              <button
+                data-delete-button
+                class="mr-2 rounded-lg bg-highlight p-3"
+              >
                 <Icon name="square-icon" />
               </button>
               <p class="my-1 w-full rounded-lg bg-highlight px-3 py-2">
