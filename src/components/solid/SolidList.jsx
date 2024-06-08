@@ -1,11 +1,11 @@
-import { createSignal, For, createEffect } from 'solid-js';
+import { createSignal, For, createEffect, onMount } from 'solid-js';
 import { actions } from 'astro:actions';
 
 export default function SolidList() {
   const [task, setTask] = createSignal('');
   const [solidList, setSolidList] = createSignal([]);
 
-  createEffect(async () => {
+  onMount(async () => {
     const todos = await actions.getTodos();
     setSolidList(todos);
   });
@@ -40,9 +40,7 @@ export default function SolidList() {
         <For each={solidList()}>
           {(todo, idx) => (
             <div class="flex flex-row items-center">
-              <p class="my-1 w-full rounded-lg bg-highlight px-3 py-2">
-                {todo}
-              </p>
+              <p class="todo-content">{todo}</p>
               <button
                 data-delete-button
                 onClick={async () => await actions.deleteTask(idx())}
