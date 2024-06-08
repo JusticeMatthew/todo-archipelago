@@ -13,4 +13,10 @@ export const server = {
       return list.value;
     },
   }),
+
+  getTodos: defineAction({
+    handler: async () => {
+      return list.value;
+    },
+  }),
 };

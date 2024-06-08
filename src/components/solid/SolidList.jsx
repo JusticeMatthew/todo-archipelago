@@ -1,17 +1,20 @@
-import { createSignal, For } from 'solid-js';
+import { createSignal, For, createEffect } from 'solid-js';
 import { actions } from 'astro:actions';
 
 export default function SolidList() {
   const [task, setTask] = createSignal('');
   const [solidList, setSolidList] = createSignal([]);
-  console.log(solidList());
+
+  createEffect(async () => {
+    const todos = await actions.getTodos();
+    setSolidList(todos);
+  });
 
   const handleAddTask = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const updatedTasks = await actions.addTask(formData);
     setSolidList(updatedTasks);
-    console.log(solidList());
   };
 
   return (
