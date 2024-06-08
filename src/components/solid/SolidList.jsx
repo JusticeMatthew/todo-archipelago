@@ -5,7 +5,7 @@ export default function SolidList() {
   const [task, setTask] = createSignal('');
   const [solidList, setSolidList] = createSignal([]);
 
-  onMount(async () => {
+  createEffect(async () => {
     const todos = await actions.getTodos();
     setSolidList(todos);
   });

@@ -12,6 +12,7 @@ if (Astro.request.method === 'POST') {
 
     if (task) list.value.push(task);
     if (checkedString) {
+      console.log(checkedString);
       list.value.splice(parseInt(checkedString), 1);
     }
   } catch (error) {
