@@ -15,6 +15,7 @@ export default function SolidList() {
     const formData = new FormData(e.target);
     const updatedTasks = await actions.addTask(formData);
     setSolidList(updatedTasks);
+    setTask('');
   };
 
   return (
@@ -42,9 +43,10 @@ export default function SolidList() {
               <p class="my-1 w-full rounded-lg bg-highlight px-3 py-2">
                 {todo}
               </p>
-              <input id={todo} value={idx} name="checked" class="sr-only" />
               <button
                 data-delete-button
+                onClick={async () => await actions.deleteTask(idx())}
+                type="submit"
                 aria-label="delete button"
                 class="delete-button"
               >

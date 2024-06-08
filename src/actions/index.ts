@@ -19,4 +19,12 @@ export const server = {
       return list.value;
     },
   }),
+
+  deleteTask: defineAction({
+    handler: async (index) => {
+      list.value.splice(index as number, 1);
+
+      return list.value;
+    },
+  }),
 };
