@@ -18,6 +18,11 @@ export default function SolidList() {
     setTask('');
   };
 
+  const handleDeleteTask = async (idx) => {
+    const updatedTasks = await actions.deleteTask(idx);
+    setSolidList(updatedTasks);
+  };
+
   return (
     <div class="list-base">
       <p class="text-subtitle">
@@ -43,7 +48,7 @@ export default function SolidList() {
               <p class="todo-content">{todo}</p>
               <button
                 data-delete-button
-                onClick={async () => await actions.deleteTask(idx())}
+                onClick={() => handleDeleteTask(idx())}
                 type="submit"
                 aria-label="delete button"
                 class="delete-button"
