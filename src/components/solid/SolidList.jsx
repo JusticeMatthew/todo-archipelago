@@ -1,14 +1,10 @@
 import { createSignal, For } from 'solid-js';
 import { actions } from 'astro:actions';
-import { useStore } from '@nanostores/solid';
-import { list } from '@/store/todoStore';
 
 export default function SolidList() {
-  const $list = useStore(list);
   const [task, setTask] = createSignal('');
   const [solidList, setSolidList] = createSignal([]);
   console.log(solidList());
-  console.log($list.value);
 
   const handleAddTask = async (e) => {
     e.preventDefault();
@@ -46,9 +42,10 @@ export default function SolidList() {
               <input id={todo} value={idx} name="checked" class="sr-only" />
               <button
                 data-delete-button
-                class="ml-2 rounded-lg bg-highlight p-3"
+                aria-label="delete button"
+                class="delete-button"
               >
-                delete
+                X
               </button>
             </div>
           )}

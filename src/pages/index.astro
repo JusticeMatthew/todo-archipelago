@@ -1,7 +1,6 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import Bread from '@/components/Bread.astro';
-import { Icon } from 'astro-icon/components';
 import { list } from '@/store/todoStore.js';
 
 if (Astro.request.method === 'POST') {
@@ -66,10 +65,9 @@ if (Astro.request.method === 'POST') {
         <button
           id="submit"
           type="submit"
-          aria-label="add button"
+          aria-label="add todo button"
           class="add-button hover:bg-astro"
         >
-          <Icon name="plus-icon" class="pointer-events-none" />
           Add
         </button>
       </form>
@@ -77,15 +75,14 @@ if (Astro.request.method === 'POST') {
         {
           list.value.map((todo, idx) => (
             <div class="flex flex-row items-center">
-              <p class="my-1 w-full rounded-lg bg-highlight px-3 py-2">
-                {todo}
-              </p>
+              <p class="todo-content">{todo}</p>
               <input id={todo} value={idx} name="checked" class="sr-only" />
               <button
                 data-delete-button
-                class="ml-2 rounded-lg bg-highlight p-3"
+                aria-label="delete button"
+                class="delete-button"
               >
-                <Icon name="delete-icon" />
+                X
               </button>
             </div>
           ))
