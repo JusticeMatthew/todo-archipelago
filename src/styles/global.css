@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .list-base {
+    @apply ml-32 flex w-full flex-col rounded-lg bg-dark/75 p-8 text-light shadow outline outline-1 outline-dark backdrop-blur-lg;
+  }
+
+  .framework {
+    @apply underline decoration-4 underline-offset-4;
+  }
+
+  .add-form {
+    @apply mt-6 flex w-full self-end;
+  }
+
+  .add-input {
+    @apply w-full rounded-md bg-highlight p-3 outline-none;
+  }
+
+  .add-button {
+    @apply ml-2 flex items-center justify-center gap-2 rounded-lg bg-dark/75 px-5 py-3 font-medium outline-1 outline-dark transition-all duration-200;
+  }
+}
+
 :root {
   /* Font Sizes */
   --step-00: clamp(0.8333rem, 0.8302rem + 0.0153vi, 0.844rem);
@@ -24,6 +46,7 @@
   /* Colors */
   --highlight: rgba(248, 250, 252, 0.1);
   --astro: #ca98b7;
+  --solid: #7899c4;
 
   /* Top Gap */
   --space-section: clamp(10rem, 6.8388rem + 15.3271vi, 20.25rem);

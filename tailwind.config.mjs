@@ -23,6 +23,7 @@ export default {
         dark: '#0D111C',
         highlight: 'var(--highlight)',
         astro: 'var(--astro)',
+        solid: 'var(--solid)',
       },
     },
   },

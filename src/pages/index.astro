@@ -2,7 +2,7 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import Bread from '@/components/Bread.astro';
 import { Icon } from 'astro-icon/components';
-import { list } from '@/store/todoStore.js';
+import { list, addTask } from '@/store/todoStore.js';
 
 if (Astro.request.method === 'POST') {
   try {
@@ -11,7 +11,7 @@ if (Astro.request.method === 'POST') {
     const checked = data.get('checked');
     const checkedString = checked?.toString();
 
-    if (task) list.value.push(task);
+    if (task) addTask(task);
     if (checkedString) {
       list.value.splice(parseInt(checkedString), 1);
     }
@@ -50,47 +50,43 @@ if (Astro.request.method === 'POST') {
 <MainLayout title="Astro">
   <section>
     <Bread />
-    <div
-      class="ml-32 flex w-full flex-col rounded-lg bg-dark/75 p-8 text-light shadow outline outline-1 outline-dark backdrop-blur-lg"
-    >
+    <div class="list-base">
       <p class="text-subtitle">
-        Your <span
-          class="underline decoration-astro decoration-4 underline-offset-4"
-          >Astro</span
-        > todo list
+        Your <span class="framework decoration-astro">Astro</span> todo list
       </p>
-      <form method="POST" class="my-6 flex w-full self-end">
+      <form method="POST" class="add-form">
         <input
           id="task"
           required
           autocomplete="off"
           name="task"
           placeholder="add new task..."
-          class="w-full rounded-md bg-highlight p-3 outline-none focus:outline-astro"
+          class="add-input focus:outline-astro"
         />
         <button
           id="submit"
           type="submit"
-          class="ml-2 flex items-center justify-center gap-2 rounded-lg bg-dark/75 px-5 py-3 font-medium outline-1 outline-dark transition-all duration-200 hover:bg-astro"
+          aria-label="add button"
+          class="add-button hover:bg-astro"
         >
           <Icon name="plus-icon" class="pointer-events-none" />
           Add
         </button>
       </form>
-      <form>
+      <form class={list.value.length > 0 ? 'mt-6' : 'mt-0'}>
         {
           list.value.map((todo, idx) => (
             <div class="flex flex-row items-center">
-              <input id={todo} value={idx} name="checked" class="sr-only" />
-              <button
-                data-delete-button
-                class="mr-2 rounded-lg bg-highlight p-3"
-              >
-                <Icon name="square-icon" />
-              </button>
               <p class="my-1 w-full rounded-lg bg-highlight px-3 py-2">
                 {todo}
               </p>
+              <input id={todo} value={idx} name="checked" class="sr-only" />
+              <button
+                data-delete-button
+                class="ml-2 rounded-lg bg-highlight p-3"
+              >
+                <Icon name="delete-icon" />
+              </button>
             </div>
           ))
         }
