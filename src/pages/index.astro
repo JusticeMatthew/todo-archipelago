@@ -2,7 +2,7 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import Bread from '@/components/Bread.astro';
 import { Icon } from 'astro-icon/components';
-import { list, addTask } from '@/store/todoStore.js';
+import { list } from '@/store/todoStore.js';
 
 if (Astro.request.method === 'POST') {
   try {
@@ -11,7 +11,7 @@ if (Astro.request.method === 'POST') {
     const checked = data.get('checked');
     const checkedString = checked?.toString();
 
-    if (task) addTask(task);
+    if (task) list.value.push(task);
     if (checkedString) {
       list.value.splice(parseInt(checkedString), 1);
     }

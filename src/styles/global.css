@@ -49,7 +49,7 @@
   --solid: #7899c4;
 
   /* Top Gap */
-  --space-section: clamp(10rem, 6.8388rem + 15.3271vi, 20.25rem);
+  --space-section: clamp(10rem, 7.5327rem + 11.9626vi, 18rem);
 }
 
 body {
