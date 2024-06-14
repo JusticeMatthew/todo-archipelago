@@ -21,8 +21,12 @@ export const server = {
   }),
 
   deleteTask: defineAction({
-    handler: async (index) => {
-      list.value.splice(index as number, 1);
+    handler: async ({ index }) => {
+      if (index === undefined) {
+        list.value.pop();
+      } else {
+        list.value.splice(index as number, 1);
+      }
 
       return list.value;
     },
