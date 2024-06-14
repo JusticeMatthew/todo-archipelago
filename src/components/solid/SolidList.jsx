@@ -12,7 +12,7 @@ export default function SolidList() {
 
   const handleAddTask = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     const updatedTasks = await actions.addTask(formData);
     setSolidList(updatedTasks);
     setTask('');

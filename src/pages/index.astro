@@ -8,7 +8,7 @@ if (Astro.request.method === 'POST') {
     const data = await Astro.request.formData();
     const task = data.get('task');
 
-    if (task) list.value.push(task);
+    if (task) list.set([...list.get(), task]);
   } catch (error) {
     if (error instanceof Error) {
       console.log(error.message);
@@ -22,6 +22,7 @@ if (Astro.request.method === 'POST') {
 
   document.addEventListener('astro:page-load', () => {
     const tasks = document.querySelectorAll('[data-delete-button]');
+
     tasks.forEach((task) => {
       const input = task.previousElementSibling;
       const taskValue = input.getAttribute('value');
@@ -39,7 +40,7 @@ if (Astro.request.method === 'POST') {
       <p class="text-subtitle">
         Your <span class="framework decoration-astro">Astro</span> todo list
       </p>
-      <form method="POST" class="add-form">
+      <form id="astro-form" class="add-form" method="POST">
         <input
           id="task"
           required
@@ -50,6 +51,7 @@ if (Astro.request.method === 'POST') {
         />
         <button
           id="submit"
+          type="submit"
           aria-label="add todo button"
           class="add-button hover:bg-astro"
         >
