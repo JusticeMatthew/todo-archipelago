@@ -24,9 +24,10 @@ if (Astro.request.method === 'POST') {
     const tasks = document.querySelectorAll('[data-delete-button]');
     tasks.forEach((task) => {
       const input = task.previousElementSibling;
-      const taskIndex = input.getAttribute('value');
+      const taskValue = input.getAttribute('value');
       task.addEventListener('click', async () => {
-        await actions.deleteTask(taskIndex);
+        console.log(taskValue, input);
+        await actions.deleteTask(taskValue);
       });
     });
   });
@@ -56,12 +57,12 @@ if (Astro.request.method === 'POST') {
           Add
         </button>
       </form>
-      <form class={list.value.length > 0 ? 'mt-6' : 'mt-0'}>
+      <form class={list.get().length > 0 ? 'mt-6' : 'mt-0'}>
         {
-          list.value.map((todo, idx) => (
+          list.get().map((todo, index) => (
             <div class="flex flex-row items-center">
               <p class="todo-content">{todo}</p>
-              <input id={todo} value={idx} class="sr-only" />
+              <input id={index.toString()} value={todo} class="sr-only" />
               <button
                 data-delete-button
                 aria-label="delete button"

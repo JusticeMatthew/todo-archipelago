@@ -43,12 +43,12 @@ export default function SolidList() {
       </form>
       <form class={solidList().length > 0 ? 'mt-6' : 'mt-0'}>
         <For each={solidList()}>
-          {(todo, idx) => (
+          {(todo) => (
             <div class="flex flex-row items-center">
               <p class="todo-content">{todo}</p>
               <button
                 data-delete-button
-                onClick={() => handleDeleteTask(idx())}
+                onClick={() => handleDeleteTask(todo)}
                 type="submit"
                 aria-label="delete button"
                 class="delete-button"

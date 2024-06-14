@@ -21,10 +21,11 @@ export const server = {
   }),
 
   deleteTask: defineAction({
-    handler: async ({ index }) => {
-      list.value.splice(index as number, 1);
-
-      return list.value;
+    input: z.string(),
+    handler: async (task) => {
+      const index = list.get().indexOf(task);
+      list.get().splice(index, 1);
+      return list.get();
     },
   }),
 };
