@@ -1,7 +1,13 @@
+---
+const { home } = Astro.props;
+---
+
 <div class="flex flex-col justify-center">
   <strong class="text-min uppercase">Todo List</strong>
-  <h1 class="slab mb-6 text-headline">archipelago</h1>
-  <p class="text-subtitle mb-12">ärkəˈpeləˌɡō</p>
+  <h1 class=`${home ? 'slab' : 'font-roboto'} mb-6 text-headline`>
+    archipelago
+  </h1>
+  <p class="mb-12 text-subtitle">ärkəˈpeləˌɡō</p>
   <strong>noun</strong>
   <p>a large group or chain of islands</p>
 </div>

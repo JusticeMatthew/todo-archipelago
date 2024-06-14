@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto-Slab';
+  src: url('/fonts/roboto-slab.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer components {
   .list-base {
     @apply ml-32 flex w-full flex-col rounded-lg bg-dark/75 p-8 text-light shadow outline outline-1 outline-dark backdrop-blur-lg;
@@ -24,7 +40,7 @@
   }
 
   .todo-content {
-    @apply my-1 w-full rounded-lg bg-highlight px-3 py-2;
+    @apply my-1 w-full rounded-lg bg-highlight px-3 py-2 font-sans;
   }
 
   .delete-button {

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   important: true,
@@ -8,6 +9,10 @@ export default {
   },
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        roboto: ['Roboto-Slab', ...defaultTheme.fontFamily.serif],
+      },
       margin: {
         section: 'var(--space-section)',
       },
