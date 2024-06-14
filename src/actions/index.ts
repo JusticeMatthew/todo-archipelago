@@ -8,9 +8,8 @@ export const server = {
       task: z.string(),
     }),
     handler: async ({ task }) => {
-      list.value.push(task);
-
-      return list.value;
+      list.set([...list.get(), task]);
+      return list.get();
     },
   }),
 
