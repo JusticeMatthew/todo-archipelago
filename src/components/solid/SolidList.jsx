@@ -18,7 +18,7 @@ export default function SolidList() {
     setTask('');
   };
 
-  const handleDeleteTask = async ({ idx }) => {
+  const handleDeleteTask = async (idx) => {
     const updatedTasks = await actions.deleteTask(idx);
     setSolidList(updatedTasks);
   };

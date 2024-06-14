@@ -16,17 +16,13 @@ export const server = {
 
   getTodos: defineAction({
     handler: async () => {
-      return list.value;
+      return list.get();
     },
   }),
 
   deleteTask: defineAction({
     handler: async ({ index }) => {
-      if (index === undefined) {
-        list.value.pop();
-      } else {
-        list.value.splice(index as number, 1);
-      }
+      list.value.splice(index as number, 1);
 
       return list.value;
     },
