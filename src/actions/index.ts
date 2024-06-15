@@ -20,9 +20,11 @@ export const server = {
   }),
 
   deleteTask: defineAction({
-    input: z.string(),
-    handler: async (task) => {
-      const index = list.get().indexOf(task);
+    input: z.object({
+      todo: z.string(),
+    }),
+    handler: async ({ todo }) => {
+      const index = list.get().indexOf(todo);
       list.get().splice(index, 1);
       return list.get();
     },

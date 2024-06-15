@@ -1,4 +1,4 @@
-import { createSignal, For, createEffect, onMount } from 'solid-js';
+import { createSignal, For, createEffect } from 'solid-js';
 import { actions } from 'astro:actions';
 
 export default function SolidList() {
@@ -18,8 +18,8 @@ export default function SolidList() {
     setTask('');
   };
 
-  const handleDeleteTask = async (idx) => {
-    const updatedTasks = await actions.deleteTask(idx);
+  const handleDeleteTask = async (targetTask) => {
+    const updatedTasks = await actions.deleteTask({ todo: targetTask });
     setSolidList(updatedTasks);
   };
 

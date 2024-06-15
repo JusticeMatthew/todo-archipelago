@@ -72,7 +72,7 @@
   --astro: #ca98b7;
   --solid: #7899c4;
 
-  /* Top Gap */
+  /* Section Gap */
   --space-section: clamp(10rem, 7.5327rem + 11.9626vi, 18rem);
 }
 

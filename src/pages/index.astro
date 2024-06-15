@@ -27,7 +27,7 @@ if (Astro.request.method === 'POST') {
       const input = task.previousElementSibling;
       const taskValue = input.getAttribute('value');
       task.addEventListener('click', async () => {
-        await actions.deleteTask(taskValue);
+        await actions.deleteTask({ todo: taskValue });
       });
     });
   });
