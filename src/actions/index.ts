@@ -1,7 +1,14 @@
-import { defineAction, z } from 'astro:actions';
+import { defineAction } from 'astro:actions';
+import { z } from 'astro:schema'
 import { list } from '@/store/todoStore';
 
 export const server = {
+  getTodos: defineAction({
+    handler: async () => {
+      return list.get();
+    },
+  }),
+
   addTask: defineAction({
     accept: 'form',
     input: z.object({
@@ -9,12 +16,6 @@ export const server = {
     }),
     handler: async ({ task }) => {
       list.set([...list.get(), task]);
-      return list.get();
-    },
-  }),
-
-  getTodos: defineAction({
-    handler: async () => {
       return list.get();
     },
   }),

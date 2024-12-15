@@ -7,7 +7,7 @@ export default function SolidList() {
 
   createEffect(async () => {
     const todos = await actions.getTodos();
-    setSolidList(todos);
+    setSolidList(todos.data);
   });
 
   const handleAddTask = async (e) => {

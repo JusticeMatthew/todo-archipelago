@@ -2,34 +2,34 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import Bread from '@/components/Bread.astro';
 import { list } from '@/store/todoStore.js';
-
-if (Astro.request.method === 'POST') {
-  try {
-    const data = await Astro.request.formData();
-    const task = data.get('task');
-
-    if (task) list.set([...list.get(), task]);
-  } catch (error) {
-    if (error instanceof Error) {
-      console.log(error.message);
-    }
-  }
-}
 ---
 
 <script>
   import { actions } from 'astro:actions';
 
   document.addEventListener('astro:page-load', () => {
-    const tasks = document.querySelectorAll('[data-delete-button]');
 
-    tasks.forEach((task) => {
-      const input = task.previousElementSibling;
-      const taskValue = input.getAttribute('value');
-      task.addEventListener('click', async () => {
-        await actions.deleteTask({ todo: taskValue });
-      });
-    });
+    const form = document.querySelector('form');
+    console.log(form)
+
+    form?.addEventListener('submit', async () => {
+    const formData = new FormData(form);
+    await actions.addTask(formData);
+  })
+
+    // const tasks = document.querySelectorAll('[data-delete-button]');
+
+    // tasks.forEach((task) => {
+    //   const input = task.previousElementSibling;
+    //   const taskValue = input.getAttribute('value');
+    //   task.addEventListener('click', async () => {
+    //     const {data, error } = await actions.deleteTask({ todo: taskValue });
+        
+    //     if (!error) {
+    //       allTodos = data
+    //     }
+    //   });
+    // });
   });
 </script>
 
@@ -40,7 +40,7 @@ if (Astro.request.method === 'POST') {
       <p class="text-subtitle">
         Your <span class="framework decoration-astro">Astro</span> todo list
       </p>
-      <form id="astro-form" class="add-form" method="POST">
+      <form id="astro-form" class="add-form">
         <input
           id="task"
           required
